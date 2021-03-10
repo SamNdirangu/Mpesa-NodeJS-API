@@ -1,0 +1,43 @@
+{
+  "name": "mpesa-node-js-api",
+  "version": "1.0.0",
+  "description": "A simple node js implementation of mpesa api",
+  "author": "Samuel Ndirangu",
+  "license": "AGPL-3.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "nodemon --exec babel-node src/server.js",
+    "test-server": "TEST_DATABASE=graphql_test npm start",
+    "test": "mocha --require @babel/register 'src/**/*.spec.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/samndirangu"
+  },
+  "keywords": [
+    "graphql",
+    "apollo",
+    "node express"
+  ],
+  "dependencies": {
+    "@types/sequelize": "^4.28.9",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "node-fetch": "^2.6.1",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@babel/node": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.4",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "eslint": "^7.10.0",
+    "eslint-config-google": "^0.14.0",
+    "nodemon": "^2.0.4"
+  }
+}
