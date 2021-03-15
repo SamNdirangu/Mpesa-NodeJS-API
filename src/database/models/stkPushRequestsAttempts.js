@@ -1,7 +1,7 @@
 import { sequelize } from 'database';
 import * as DataTypes from 'sequelize';
 
-
+//Stores attempted requests that for one reason mpesa could not full fuill
 const stkPushRequestAttempts = () => {
 	const stkPushRequestAttempt = sequelize.define('stkPushRequestAttempts', {
 		//Request Data

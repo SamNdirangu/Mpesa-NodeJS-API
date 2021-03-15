@@ -1,6 +1,7 @@
 import Sequelize from 'sequelize';
-import stkPushRequests from 'database/models/stkpushRequests';
-import stkPushRequestAttempts from 'database/models/stkPushRequestAttempts';
+import stkPushRequests from 'database/models/stkPushRequests';
+import stkPushRequestAttempts from 'database/models/stkPushRequestsAttempts';
+import stkPushBackupRequests from 'database/models/stkPushBackupRequests';
 
 //This file instantiates our connection to the database and our models
 //This is done using sequilize
@@ -19,6 +20,7 @@ const sequelize = new Sequelize(
 
 const models = {//Combine our different models
 	stkPushRequests: stkPushRequests(),
+	stkPushBackupRequests: stkPushBackupRequests(),
 	stkPushRequestAttempts: stkPushRequestAttempts()
 };
 

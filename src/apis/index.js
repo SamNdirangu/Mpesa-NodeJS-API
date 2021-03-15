@@ -1,6 +1,5 @@
 import express from 'express';
-import { stkPushRouter } from './stkPush';
-
+import stkPushRouter from 'apis/stkPush';
 
 const mpesaRouter = express.Router();
 mpesaRouter.use('/stkpush', stkPushRouter);
