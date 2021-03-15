@@ -26,6 +26,9 @@ const stkPushRequests = () => {
 			type: DataTypes.STRING,
 			allowNull: false
 		},
+		paymentSuccess:  {
+			type: DataTypes.BOOLEAN
+		},
 		requestTimeStamp:{
 			type: DataTypes.STRING(30),
 			allowNull: false
@@ -52,9 +55,6 @@ const stkPushRequests = () => {
 
 		//Mpesa Callback response
 		mpesaCalledBack: {
-			type: DataTypes.BOOLEAN
-		},
-		paymentSuccess:  {
 			type: DataTypes.BOOLEAN
 		},
 		ResultCode: {
