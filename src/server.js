@@ -1,19 +1,21 @@
 import 'dotenv/config';
 import http from 'http';
+import helmet from 'helmet';
 import express from 'express';
 
 import rootRouter from './apis';
 import { sequelize } from 'database';
 
-
-// Create Express App
+//Create Express App
 const app = express();
-// Add middleware to parse application/json
+//Add helmet for added Security
+app.use(helmet());
+//Add middleware to parse application/json
 app.use(express.json());
-// Add middleware to parse the POST data of the body
+//Add middleware to parse the POST data of the body
 app.use(express.urlencoded({ extended: true }));
 
-// Add API Routes
+//Add API Routes
 app.use(rootRouter);
 
 
