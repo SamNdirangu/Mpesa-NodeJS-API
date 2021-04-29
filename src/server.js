@@ -23,7 +23,7 @@ app.use(rootRouter);
 const port =  process.env.SERVER_PORT || 8080;
 
 const httpServer = http.createServer(app);
-sequelize.sync().then(async () => { //Sync our sequelize then start listening
+sequelize.sync({force: true}).then(async () => { //Sync our sequelize then start listening
 	httpServer.listen({ port }, () => {
 		console.log('Server is listening to port: ' + port);
 		console.log('Server is on at http://localhost:' + port);

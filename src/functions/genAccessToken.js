@@ -1,4 +1,4 @@
-import mpesaParams from 'constants/mpesa';
+import configs from 'configs/mpesa';
 import fetch from 'node-fetch';
 
 var tokenData = {};
@@ -16,7 +16,7 @@ const genAccessToken = async () => {
 	//if no token or expired gen new token
 	console.log('fetch fresh token');
 	try {
-		const response = await fetch(mpesaParams.oAuthURL,{
+		const response = await fetch(configs.oAuthURL,{
 			method: 'GET',
 			headers: {
 				Authorization: 'Basic '+ process.env.authorizationKey + '=='

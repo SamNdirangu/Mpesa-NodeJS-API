@@ -1,7 +1,6 @@
-import fetch from 'node-fetch'
-;
+import fetch from 'node-fetch';
 import models from 'database';
-import mpesaParams from 'constants/mpesa';
+import configs from 'configs/mpesa';
 import genAccessToken from 'functions/genAccessToken';
 import genSTKPushPassword from 'functions/genSTKPushPassword';
 
@@ -23,7 +22,7 @@ const stkPushInitiate = async (request, response) => {
 	const access_token = await genAccessToken();
 	const { password, requestTimeStamp } = genSTKPushPassword();
 
-	const callBack = request.body.callBack;
+	const callBack = request.body.callBack ? request.body.callBack : configs.CallBackURL;
 	const paymentAmount = request.body.amount;
 	const customerPhone = request.body.phoneNumber;
 	const transactionDesc = request.body.transactionDesc;
@@ -46,13 +45,13 @@ const stkPushInitiate = async (request, response) => {
 
 	//Build request payload
 	const stkPushRequest = { 
-		BusinessShortCode: mpesaParams.BusinessShortCode,
+		BusinessShortCode: configs.BusinessShortCode,
 		Password: password,
 		Timestamp: requestTimeStamp,
-		TransactionType: mpesaParams.TransactionType,
+		TransactionType: configs.TransactionType,
 		Amount: paymentAmount,
 		PartyA: customerPhone,
-		PartyB: mpesaParams.BusinessShortCode,
+		PartyB: configs.BusinessShortCode,
 		PhoneNumber: customerPhone,
 		CallBackURL: callBack,
 		AccountReference: accountReference,
@@ -60,7 +59,7 @@ const stkPushInitiate = async (request, response) => {
 	};
 		
 	try {
-		const stkRequestResponse = await fetch(mpesaParams.STKPushURL,{
+		const stkRequestResponse = await fetch(configs.STKPushURL,{
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-const mpesaParams = {
+const configs = {
 	BusinessShortCode: '174379',
 	TransactionType: 'CustomerPayBillOnline',
 	PartyB: '174379',
@@ -8,4 +8,4 @@ const mpesaParams = {
 	oAuthURL: 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
 };
 
-export default mpesaParams;
+export default configs;
